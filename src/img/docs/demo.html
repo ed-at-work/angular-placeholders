@@ -40,7 +40,8 @@
   <div>
     <h3>It Can Change in Real Time</h3>
     <p>Image Dimensions: <input ng-model="imageDimension"></p>
-    <p>Image Dimensions: <input ng-model="imageLabel"></p>
-    <img class="img-polaroid" ph-img="{{imageDimension}}" ph-img-label="{{imageLabel}}" />
+    <p>Image Label: <input ng-model="imageLabel"></p>
+    <p>Image Label Font Size: <input type="number" ng-model="imageFontSize"></p>
+    <img class="img-polaroid" ph-img="{{imageDimension}}" ph-img-label="{{imageLabel}}" ph-img-fontsize="{{imageFontSize}}" />
   </div>
 </div>

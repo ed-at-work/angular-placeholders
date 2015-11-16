@@ -31,7 +31,8 @@ angular.module( 'placeholders.img', [] )
     restrict: 'A',
     scope: {
       dimensions: '@phImg',
-      label: '@phImgLabel'
+      label: '@phImgLabel',
+      fontSize: '@phImgFontsize'
     },
     link: function( scope, element, attr ) {
       // A reference to a canvas that we can reuse
@@ -53,10 +54,11 @@ angular.module( 'placeholders.img', [] )
        * When the provided dimensions change, re-pull the width and height and
        * then redraw the image.
        */
-       scope.$watch(function() { return [attr.phImg, attr.phImgLabel]; }, function () {
+       scope.$watch(function() { return [attr.phImg, attr.phImgLabel, attr.phImgFontsize]; }, function () {
          if( ! angular.isDefined( scope.dimensions ) ) {
              return;
          }
+
          var matches = scope.dimensions.match( /^(\d+)x(\d+)$/ ),
              dataUrl;
 
@@ -96,7 +98,7 @@ angular.module( 'placeholders.img', [] )
         var dimension_arr = [scope.size.h, scope.size.w].sort(),
             maxFactor = Math.round(dimension_arr[1] / 26);
 
-        return Math.max(config.text_size, maxFactor);
+        return scope.fontSize? scope.fontSize : Math.max(config.text_size, maxFactor);
       }
 
       /**
@@ -130,7 +132,6 @@ angular.module( 'placeholders.img', [] )
         // TODO: support configurable font
         // FIXME: ensure text will fit and resize if it doesn't
         text_size = getTextSize();
-        console.log(text_size);
         text = scope.dimensions;
         context.fillStyle = config.text_color;
         context.textAlign = 'center';

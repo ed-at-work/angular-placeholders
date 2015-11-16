@@ -151,8 +151,9 @@
   <div>
     <h3>It Can Change in Real Time</h3>
     <p>Image Dimensions: <input ng-model="imageDimension"></p>
-    <p>Image Dimensions: <input ng-model="imageLabel"></p>
-    <img class="img-polaroid" ph-img="{{imageDimension}}" ph-img-label="{{imageLabel}}" />
+    <p>Image Label: <input ng-model="imageLabel"></p>
+    <p>Image Label Font Size: <input type="number" ng-model="imageFontSize"></p>
+    <img class="img-polaroid" ph-img="{{imageDimension}}" ph-img-label="{{imageLabel}}" ph-img-fontsize="{{imageFontSize}}" />
   </div>
 </div>
 
@@ -220,14 +221,16 @@ of the image to create; the expected format is "100x100".</p>
   &lt;div&gt;
     &lt;h3&gt;It Can Change in Real Time&lt;/h3&gt;
     &lt;p&gt;Image Dimensions: &lt;input ng-model=&quot;imageDimension&quot;&gt;&lt;/p&gt;
-    &lt;p&gt;Image Dimensions: &lt;input ng-model=&quot;imageLabel&quot;&gt;&lt;/p&gt;
-    &lt;img class=&quot;img-polaroid&quot; ph-img=&quot;{{imageDimension}}&quot; ph-img-label=&quot;{{imageLabel}}&quot; /&gt;
+    &lt;p&gt;Image Label: &lt;input ng-model=&quot;imageLabel&quot;&gt;&lt;/p&gt;
+    &lt;p&gt;Image Label Font Size: &lt;input type=&quot;number&quot; ng-model=&quot;imageFontSize&quot;&gt;&lt;/p&gt;
+    &lt;img class=&quot;img-polaroid&quot; ph-img=&quot;{{imageDimension}}&quot; ph-img-label=&quot;{{imageLabel}}&quot; ph-img-fontsize=&quot;{{imageFontSize}}&quot; /&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre></pane>
                     <pane heading="JavaScript" plunker-content="javascript"><pre ng-non-bindable><code data-language="javascript">var ImageDemoCtrl = function ( $scope ) {
   $scope.imageDimension = &#x27;550x300&#x27;;
   $scope.imageLabel = &#x27;labels are awesome!&#x27;;
+  $scope.imageFontSize = 16;
 };
 </code></pre></pane>
                 </tabs>
@@ -237,6 +240,7 @@ of the image to create; the expected format is "100x100".</p>
       <script>var ImageDemoCtrl = function ( $scope ) {
   $scope.imageDimension = '550x300';
   $scope.imageLabel = 'labels are awesome!';
+  $scope.imageFontSize = 16;
 };
 </script>
     
