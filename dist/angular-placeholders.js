@@ -59,7 +59,7 @@ angular.module( 'placeholders.img', [] )
          if( ! angular.isDefined( scope.dimensions ) ) {
              return;
          }
-         console.log(attr.phImgSize);
+
          var matches = scope.dimensions.match( /^(\d+)x(\d+)$/ ),
              dataUrl;
 
@@ -98,7 +98,7 @@ angular.module( 'placeholders.img', [] )
       function getTextSize() {
         var dimension_arr = [scope.size.h, scope.size.w].sort(),
             maxFactor = Math.round(dimension_arr[1] / 26);
-console.log(scope.fontSize);
+
         return scope.fontSize? scope.fontSize : Math.max(config.text_size, maxFactor);
       }
 
