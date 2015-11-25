@@ -72,10 +72,10 @@ angular.module( 'placeholders.img', [] )
 
          // Add missing image properties.
          if ( !element.prop( "title" ) ) {
-           element.prop( "title", scope.dimensions );
+           element.prop( "title", scope.label || scope.dimensions);
          }
          if ( !element.prop( "alt" ) ) {
-           element.prop( "alt", scope.dimensions );
+           element.prop( "alt", scope.label || scope.dimensions);
          }
 
          // And draw the image, getting the returned data URL.
